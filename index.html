@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Neighborhood Auto — Fast Title | 48hr Inspection | Buy Online</title>
+  <meta name="description" content="Neighborhood Auto — Local-focused car dealer specializing in certified used vehicles, fast-title guarantee, 48-hour inspection reports, home delivery, and transparent pricing." />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    /* Mobile-first base styles */
+    :root{
+      --bg:#0f172a; --card:#0b1220; --muted:#9aa4b2; --accent1:#06b6d4; --accent2:#7c3aed; --accent-cta:#ff7a59; --glass: rgba(255,255,255,0.04);
+      --max-width:1200px; --radius:12px; --shadow: 0 6px 18px rgba(2,6,23,0.6);
+      --focus: 3px solid rgba(99,102,241,0.18);
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    html,body{height:100%;}
+    body{margin:0; background:linear-gradient(180deg,#071126 0%, #071527 60%, #04121b 100%); color:#e6eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+    .container{max-width:var(--max-width); margin:0 auto; padding:20px;}
+    header{display:flex;align-items:center;gap:12px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#041127;box-shadow:0 6px 18px rgba(124,58,237,0.25)}
+    .brand h1{font-size:16px;margin:0}
+    nav{margin-left:auto}
+    nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-size:14px}
+    nav a.cta{background:linear-gradient(90deg,var(--accent-cta),#ff946f);color:#071127;padding:8px 12px;border-radius:10px;font-weight:600}
+    /* Hero */
+    .hero{background:linear-gradient(180deg, rgba(12,20,35,0.6), rgba(2,6,23,0.35)); border-radius:16px; padding:18px; box-shadow:var(--shadow); display:grid; gap:14px}
+    .hero-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    .headline{font-size:20px;margin:0;color:#fff}
+    .sub{color:var(--muted);font-size:13px}
+    .search-bar{display:flex;gap:8px;align-items:center}
+    .search-input{flex:1;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    .btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;color:#041127;padding:10px 14px;border-radius:12px;font-weight:600;cursor:pointer}
+    .promise{display:flex;gap:12px;align-items:center;padding:10px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(124,58,237,0.03));font-size:13px}
+    .promise strong{color:#fff}
+    /* inventory */
+    .inventory{display:grid;gap:14px;grid-template-columns:1fr}
+    .filters{display:flex;gap:8px;overflow:auto;padding:6px 0}
+    .chip{background:var(--glass);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted);border:1px solid rgba(255,255,255,0.03)}
+    .grid{display:grid;grid-template-columns:1fr;gap:12px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:12px;display:flex;gap:12px;align-items:center;border:1px solid rgba(255,255,255,0.03)}
+    .thumb{width:120px;height:80px;border-radius:10px;overflow:hidden;flex-shrink:0;background:#021226}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .meta{flex:1}
+    .price{font-size:16px;font-weight:700;color:#fff}
+    .specs{color:var(--muted);font-size:13px}
+    .card-actions{display:flex;gap:8px}
+    .secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:8px 10px;border-radius:10px}
+    /* VDP modal */
+    .vdp-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;z-index:40}
+    .vdp-modal.open{display:flex;background:linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.9));backdrop-filter:blur(6px)}
+    .vdp{background:#071127;border-radius:14px;max-width:980px;width:100%;box-shadow:var(--shadow);overflow:auto;max-height:90vh;border:1px solid rgba(255,255,255,0.04)}
+    .vdp-header{display:flex;gap:12px;padding:14px;border-bottom:1px solid rgba(255,255,255,0.03);align-items:center}
+    .gallery{display:grid;grid-template-columns:1fr;gap:8px;padding:14px}
+    .gallery-main{height:300px;border-radius:10px;overflow:hidden}
+    .gallery-main img{width:100%;height:100%;object-fit:cover}
+    .vdp-body{padding:14px;display:grid;gap:12px}
+    .trust-strip{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px}
+    .price-breakdown{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    .cta-row{display:flex;gap:8px}
+    .badge{background:rgba(255,255,255,0.04);padding:6px 8px;border-radius:8px;font-size:12px}
+    /* forms */
+    label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+    input,select,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    /* footer */
+    footer{padding:20px 0;color:var(--muted);font-size:13px}
+    .footer-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    /* responsiveness */
+    @media(min-width:720px){
+      .hero-grid{grid-template-columns:2fr 1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .inventory{grid-template-columns:2fr 1fr}
+      .gallery{grid-template-columns:2fr 1fr}
+      .grid-2{grid-template-columns:1fr 1fr}
+    }
+    @media(min-width:1024px){
+      .grid{grid-template-columns:repeat(3,1fr)}
+      .brand h1{font-size:18px}
+      .gallery-main{height:420px}
+    }
+    /* small interactions */
+    .fade-up{transform:translateY(6px);opacity:0;animation:fadeUp .6s forwards}
+    @keyframes fadeUp{to{transform:none;opacity:1}}
+    .focus-ring:focus{outline:none;box-shadow:var(--focus)}
+    /* accessible hidden */
+    .sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header role="banner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">NA</div>
+        <div>
+          <h1>Neighborhood Auto</h1>
+          <div style="font-size:12px;color:var(--muted)">Local trust. Fast title. Transparent pricing.</div>
+        </div>
+      </div>
+      <nav role="navigation" aria-label="Main navigation">
+        <a href="#inventory">Inventory</a>
+        <a href="#service">Service</a>
+        <a href="#finance">Finance</a>
+        <a href="#about">About</a>
+        <a class="cta" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main role="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-grid">
+          <div>
+            <h2 id="hero-title" class="headline">Find your next car — buy online, pick up locally, title guaranteed</h2>
+            <p class="sub">48-hour certified inspection. Title cleared in 7 days or we pay for expedited title. Free home delivery in selected ZIPs.</p>
+
+            <form class="search-bar" role="search" aria-label="Search inventory" onsubmit="event.preventDefault();document.getElementById('inventory').scrollIntoView({behavior:'smooth'})">
+              <input class="search-input" aria-label="Search cars by make, model or VIN" placeholder="Search by make, model, or VIN" />
+              <button class="btn" type="submit">Search</button>
+            </form>
+
+            <div class="filters" aria-hidden="false">
+              <div class="chip">All</div>
+              <div class="chip">Used</div>
+              <div class="chip">EV / Hybrid</div>
+              <div class="chip">Certified</div>
+              <div class="chip">Under $25k</div>
+            </div>
+          </div>
+
+          <aside>
+            <div class="promise" role="region" aria-label="Local promises">
+              <div class="badge">48h Inspection</div>
+              <div class="badge">Title in 7 days — guaranteed</div>
+              <div class="badge">7-day return</div>
+            </div>
+
+            <div style="margin-top:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(124,58,237,0.02));padding:12px;border-radius:12px;">
+              <strong style="display:block">Need help now?</strong>
+              <div style="font-size:13px;color:var(--muted);margin-top:6px">Click to call or text our local team — immediate response during business hours.</div>
+              <div style="display:flex;gap:8px;margin-top:10px">
+                <a class="btn" href="tel:+1234567890">Call (123) 456-7890</a>
+                <button class="secondary" onclick="openSMS()">Text Us</button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="inventory" class="inventory" aria-labelledby="inventory-title" style="margin-top:18px">
+        <div>
+          <h3 id="inventory-title">Featured Inventory</h3>
+          <p style="color:var(--muted);font-size:13px;margin-top:6px">Large, locally verified inventory — all prices out-the-door estimate shown on VDP.</p>
+
+          <div class="grid" role="list" aria-label="Vehicle listings" style="margin-top:12px">
+            <!-- Card 1 -->
+            <article class="card fade-up" role="listitem" tabindex="0" aria-labelledby="v1-title" data-vin="1HGBH41JXMN109186" data-price="23995" data-year="2018" data-miles="42300" data-make="Toyota" data-model="RAV4">
+              <div class="thumb" aria-hidden="true"><img src="https://images.unsplash.com/photo-1600250396557-9b9b79d1b2c8?q=80&w=800&auto=format&fit=crop&cs=tinysrgb" loading="lazy" alt="2018 Toyota RAV4 exterior"/></div>
+              <div class="meta">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <div>
+                    <div id="v1-title">2018 Toyota RAV4 Limited</div>
+                    <div class="specs">42,300 miles • AWD • Silver</div>
+                  </div>
+                  <div class="price">$23,995</div>
+                </div>
+                <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center">
+                  <div style="color:var(--muted);font-size:13px">Inspection score: <strong style="color:#fff">96%</strong></div>
+                  <div class="card-actions">
+                    <button class="secondary" onclick="openVDP(this)" aria-haspopup="dialog">View</button>
+                    <button class="btn" onclick="reserveNow(this)" data-vin="1HGBH41JXMN109186">Reserve $99</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="card fade-up" role="listitem" tabindex="0" aria-labelledby="v2-title" data-vin="2FTRX18W1XCA12345" data-price="17995" data-year="2016" data-miles="68400" data-make="Ford" data-model="F-150">
+              <div class="thumb" aria-hidden="true"><img src="https://images.unsplash.com/photo-1549924231-f129b911e442?q=80&w=800&auto=format&fit=crop&cs=tinysrgb" loading="lazy" alt="2016 Ford F-150 exterior"/></div>
+              <div class="meta">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <div>
+                    <div id="v2-title">2016 Ford F-150 XLT</div>
+                    <div class="specs">68,400 miles • 4x4 • White</div>
+                  </div>
+                  <div class="price">$17,995</div>
+                </div>
+                <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center">
+                  <div style="color:var(--muted);font-size:13px">Inspection score: <strong style="color:#fff">92%</strong></div>
+                  <div class="card-actions">
+                    <button class="secondary" onclick="openVDP(this)" aria-haspopup="dialog">View</button>
+                    <button class="btn" onclick="reserveNow(this)" data-vin="2FTRX18W1XCA12345">Reserve $99</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="card fade-up" role="listitem" tabindex="0" aria-labelledby="v3-title" data-vin="3C6UR5PL7GG123456" data-price="32995" data-year="2020" data-miles="18200" data-make="Tesla" data-model="Model 3">
+              <div class="thumb" aria-hidden="true"><img src="https://images.unsplash.com/photo-1519455953755-af066f52f1d7?q=80&w=800&auto=format&fit=crop&cs=tinysrgb" loading="lazy" alt="2020 Tesla Model 3 exterior"/></div>
+              <div class="meta">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <div>
+                    <div id="v3-title">2020 Tesla Model 3 Long Range</div>
+                    <div class="specs">18,200 miles • Dual Motor • Red</div>
+                  </div>
+                  <div class="price">$32,995</div>
+                </div>
+                <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center">
+                  <div style="color:var(--muted);font-size:13px">Inspection score: <strong style="color:#fff">98%</strong></div>
+                  <div class="card-actions">
+                    <button class="secondary" onclick="openVDP(this)" aria-haspopup="dialog">View</button>
+                    <button class="btn" onclick="reserveNow(this)" data-vin="3C6UR5PL7GG123456">Reserve $99</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <aside aria-labelledby="sidebar-title" style="padding-left:14px">
+          <h4 id="sidebar-title">Quick Tools</h4>
+          <div style="margin-top:8px;display:flex;flex-direction:column;gap:8px">
+            <button class="secondary" onclick="document.getElementById('trade').scrollIntoView({behavior:'smooth'})">Trade-in Estimate</button>
+            <button class="secondary" onclick="document.getElementById('finance').scrollIntoView({behavior:'smooth'})">Finance Calculator</button>
+            <a class="secondary" href="#service">Book Service</a>
+            <a class="secondary" href="#about">Our Story</a>
+          </div>
+
+          <div style="margin-top:14px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)">
+            <div style="font-size:13px;color:var(--muted)">Verified Reviews</div>
+            <div style="font-size:20px;font-weight:700;color:#fff;margin-top:6px">4.7/5</div>
+            <div style="color:var(--muted);font-size:13px;margin-top:6px">Rated on Google • 1,250 reviews</div>
+            <a class="btn" href="#reviews" style="margin-top:10px">Read Reviews</a>
+          </div>
+        </aside>
+      </section>
+
+      <!-- VDP modal (template) -->
+      <div id="vdpModal" class="vdp-modal" role="dialog" aria-modal="true" aria-labelledby="vdp-title">
+        <div class="vdp" role="document">
+          <div class="vdp-header">
+            <div style="flex:1">
+              <div id="vdp-title" style="font-size:16px;font-weight:700">2018 Toyota RAV4 Limited</div>
+              <div style="font-size:13px;color:var(--muted)" id="vdp-sub">VIN: <span id="vdp-vin">1HGBH41JXMN109186</span> • 42,300 miles</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <button class="secondary" onclick="closeVDP()">Close</button>
+              <a class="btn" id="vdp-reserve" href="#">Reserve $99</a>
+            </div>
+          </div>
+
+          <div class="gallery">
+            <div class="gallery-main" aria-hidden="false"><img id="vdp-image" src="https://images.unsplash.com/photo-1600250396557-9b9b79d1b2c8?q=80&w=1600&auto=format&fit=crop&cs=tinysrgb" alt="Vehicle main image"/></div>
+            <div style="padding:14px;display:flex;flex-direction:column;gap:10px">
+              <div class="trust-strip">
+                <div class="badge">CARFAX</div>
+                <div class="badge">96% inspection</div>
+                <div class="badge">7-day return</div>
+              </div>
+
+              <div class="price-breakdown">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <div style="font-size:18px;font-weight:700" id="vdp-price">$23,995</div>
+                  <div style="color:var(--muted);font-size:13px">Est. monthly <span id="vdp-month">$412</span></div>
+                </div>
+                <div style="margin-top:8px;color:var(--muted);font-size:13px">Out-the-door estimate — taxes & fees vary by state. Click 'Get Financing' to see exact numbers.</div>
+              </div>
+
+              <div style="display:flex;gap:8px">
+                <button class="btn" onclick="document.getElementById('finance').scrollIntoView({behavior:'smooth'})">Get Financing</button>
+                <button class="secondary" onclick="document.getElementById('trade').scrollIntoView({behavior:'smooth'})">Value My Trade</button>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="vdp-body">
+            <section aria-labelledby="specs-title">
+              <h4 id="specs-title">Vehicle Details</h4>
+              <div style="color:var(--muted);font-size:13px">Full specs, equipment, and history are available below. Download the inspection PDF or watch the short inspection video for condition details.</div>
+
+              <details style="margin-top:10px" open>
+                <summary style="cursor:pointer;font-weight:600">Specs & Features</summary>
+                <div style="margin-top:8px;display:grid;grid-template-columns:1fr;gap:8px">
+                  <div class="grid-2">
+                    <div><strong>Year</strong><div class="specs">2018</div></div>
+                    <div><strong>Mileage</strong><div class="specs">42,300</div></div>
+                  </div>
+                  <div class="grid-2">
+                    <div><strong>Engine</strong><div class="specs">2.5L I4</div></div>
+                    <div><strong>Transmission</strong><div class="specs">6-speed automatic</div></div>
+                  </div>
+                  <div><strong>Features</strong><div class="specs">AWD, Backup Camera, Heated Seats, Navigation</div></div>
+                </div>
+              </details>
+
+              <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+                <a class="secondary" href="#" onclick="downloadInspection(event)">Download Inspection (PDF)</a>
+                <a class="secondary" href="#" onclick="playInspectionVideo(event)">Play Inspection Video</a>
+                <a class="secondary" href="#" onclick="showHistory(event)">View CARFAX</a>
+              </div>
+            </section>
+
+            <section id="finance" aria-labelledby="finance-title">
+              <h4 id="finance-title">Finance Calculator & Pre-Qualify</h4>
+              <div style="display:grid;gap:8px;max-width:520px">
+                <label for="priceInput">Price</label>
+                <input id="priceInput" value="23995" />
+                <div class="grid-2">
+                  <div>
+                    <label for="down">Down Payment</label>
+                    <input id="down" value="500" />
+                  </div>
+                  <div>
+                    <label for="term">Term (months)</label>
+                    <select id="term"><option>36</option><option selected>60</option><option>72</option></select>
+                  </div>
+                </div>
+                <div class="grid-2">
+                  <div>
+                    <label for="rate">Interest Rate (%)</label>
+                    <input id="rate" value="6.5" />
+                  </div>
+                  <div style="display:flex;align-items:flex-end">
+                    <button class="btn" onclick="calculateMonthly()">Estimate Payment</button>
+                  </div>
+                </div>
+                <div id="paymentResult" style="color:var(--muted);font-size:14px">Estimated monthly payment will appear here.</div>
+                <button class="btn" onclick="preQual()">Pre-Qual (soft pull)</button>
+              </div>
+            </section>
+
+            <section id="trade" aria-labelledby="trade-title">
+              <h4 id="trade-title">Trade-In Estimator</h4>
+              <form onsubmit="event.preventDefault();estimateTrade()" style="display:grid;gap:8px;max-width:520px">
+                <label for="trade-vin">Your VIN (optional)</label>
+                <input id="trade-vin" placeholder="Enter VIN to get faster estimate" />
+                <label for="trade-zip">ZIP code</label>
+                <input id="trade-zip" placeholder="e.g., 94103" />
+                <label for="trade-mile">Approx. Mileage</label>
+                <input id="trade-mile" placeholder="e.g., 54,000" />
+                <div style="display:flex;gap:8px">
+                  <button class="btn">Get Instant Offer</button>
+                  <button class="secondary" onclick="bookAppt(event)">Book Appraisal</button>
+                </div>
+              </form>
+            </section>
+
+            <section aria-labelledby="delivery-title">
+              <h4 id="delivery-title">Pickup & Delivery</h4>
+              <div style="color:var(--muted);font-size:13px">Choose in-store pickup, curbside, or home delivery. Track delivery status in your account. Title & registration tracker included with every purchase.</div>
+              <div style="display:flex;gap:8px;margin-top:8px">
+                <button class="btn">Schedule Pickup</button>
+                <button class="secondary">Request Home Delivery</button>
+              </div>
+            </section>
+
+            <section aria-labelledby="reviews-title">
+              <h4 id="reviews-title">Customer Reviews</h4>
+              <div style="color:var(--muted);font-size:13px">"Seamless online purchase and quick title transfer — highly recommend." — Jenna L.</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+      <section id="service" style="margin-top:18px">
+        <h3>Service & Parts</h3>
+        <p style="color:var(--muted)">Book maintenance, order parts, or schedule mobile service. Express lanes for online check-ins.</p>
+        <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+          <a class="secondary" href="#">Book Service</a>
+          <a class="secondary" href="#">Order Parts</a>
+          <a class="secondary" href="#">View Coupons</a>
+        </div>
+      </section>
+
+      <section id="about" style="margin-top:18px">
+        <h3>About Neighborhood Auto</h3>
+        <p style="color:var(--muted)">We are a locally-owned dealer focusing on transparent pricing, fast-title guarantee, and community partnerships. We specialize in certified pre-owned vehicles and EV/hybrid expertise.</p>
+        <a class="secondary" href="#">Meet the Team</a>
+      </section>
+
+      <section id="contact" style="margin-top:18px">
+        <h3>Contact & Locations</h3>
+        <p style="color:var(--muted)">123 Market St, YourCity, ST • Mon-Fri 9am-7pm • Sat 9am-5pm</p>
+        <div style="display:grid;grid-template-columns:1fr;gap:8px;max-width:520px">
+          <label for="lead-name">Name</label>
+          <input id="lead-name" placeholder="Your name" />
+          <label for="lead-phone">Phone</label>
+          <input id="lead-phone" placeholder="Phone or SMS number" />
+          <label for="lead-message">Message</label>
+          <textarea id="lead-message" rows="3" placeholder="How can we help?"></textarea>
+          <div style="display:flex;gap:8px">
+            <button class="btn" onclick="submitLead()">Send Message</button>
+            <button class="secondary" onclick="openSMS()">Text Us</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer role="contentinfo" style="margin-top:28px">
+      <div class="footer-grid">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div style="font-weight:700">Neighborhood Auto</div>
+            <div style="color:var(--muted);font-size:13px">Local dealer • Fast title guarantee • 7-day returns</div>
+          </div>
+          <div style="text-align:right">
+            <div style="color:var(--muted);font-size:13px">Follow us</div>
+            <div style="display:flex;gap:8px;margin-top:6px"><a class="secondary" href="#">FB</a><a class="secondary" href="#">IG</a><a class="secondary" href="#">YT</a></div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+          <a class="secondary" href="#">Inventory</a>
+          <a class="secondary" href="#">Finance</a>
+          <a class="secondary" href="#">Trade-In</a>
+          <a class="secondary" href="#">Service</a>
+          <a class="secondary" href="#">Privacy</a>
+        </div>
+
+        <div style="color:var(--muted);font-size:12px">© <span id="year">2026</span> Neighborhood Auto. All rights reserved.</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Minimal interactive behaviors for demo
+    function openSMS(){
+      const number = '+1234567890';
+      // Opens SMS composer on supported devices
+      window.location.href = 'sms:'+number+'?body=Hi%20Neighborhood%20Auto%20team%20—%20I%20have%20a%20question.';
+    }
+
+    // VDP open logic – populates modal from card context
+    function openVDP(btn){
+      const card = btn.closest('.card');
+      const vin = card.dataset.vin;
+      const price = card.dataset.price;
+      const year = card.dataset.year;
+      const miles = card.dataset.miles;
+      const make = card.dataset.make;
+      const model = card.dataset.model;
+      document.getElementById('vdp-title').textContent = year + ' ' + make + ' ' + model;
+      document.getElementById('vdp-vin').textContent = vin;
+      document.getElementById('vdp-price').textContent = '$' + Number(price).toLocaleString();
+      document.getElementById('vdp-reserve').href = '#reserve-' + vin;
+      document.getElementById('vdp-image').src = card.querySelector('img').src;
+      // estimate monthly simple (placeholder)
+      const est = Math.round((price - 500) * 0.02);
+      document.getElementById('vdp-month').textContent = '$' + est;
+      document.getElementById('vdpModal').classList.add('open');
+      // focus management
+      const modal = document.getElementById('vdpModal');
+      modal.setAttribute('tabindex','-1');
+      modal.focus();
+    }
+    function closeVDP(){document.getElementById('vdpModal').classList.remove('open');}
+
+    // Reserve action
+    function reserveNow(btn){
+      const vin = btn.dataset.vin;
+      // Placeholder; production should open deposit modal + e-sign workflow
+      alert('Reserve flow started for VIN: '+vin+' — prefill deposit of $99.');
+    }
+
+    // Small utilities
+    function downloadInspection(e){ e.preventDefault(); alert('Downloading inspection PDF — placeholder.'); }
+    function playInspectionVideo(e){ e.preventDefault(); alert('Playing inspection video — placeholder.'); }
+    function showHistory(e){ e.preventDefault(); alert('Opening vehicle history (CARFAX) — placeholder.'); }
+
+    function calculateMonthly(){
+      const price = Number(document.getElementById('priceInput').value) || 0;
+      const down = Number(document.getElementById('down').value) || 0;
+      const term = Number(document.getElementById('term').value) || 60;
+      const rate = Number(document.getElementById('rate').value) || 6.5;
+      const principal = Math.max(0, price - down);
+      const monthlyRate = rate / 100 / 12;
+      const monthly = monthlyRate === 0 ? principal/term : (principal * monthlyRate) / (1 - Math.pow(1+monthlyRate, -term));
+      document.getElementById('paymentResult').textContent = 'Estimated monthly: ' + (monthly>0? '$' + Math.round(monthly): '$0');
+    }
+
+    function preQual(){ alert('Pre-qualification started — soft credit check (demo).'); }
+    function estimateTrade(){ alert('Trade-in estimate requested. We will contact you with an instant offer.'); }
+    function bookAppt(e){ e.preventDefault(); alert('Opening booking flow (placeholder).'); }
+    function submitLead(){ alert('Thanks! We received your message and will reply within 5 minutes during business hours.'); }
+
+    // Accessibility: close modal with ESC
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeVDP(); } });
+
+    // Simple progressive enhancement: lazy animation on load
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.fade-up').forEach((el, i) => {
+        el.style.animationDelay = (i * 0.06) + 's';
+      });
+    });
+  </script>
+
+  <!-- Structured Data (LocalBusiness + sample Vehicle) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AutoDealer",
+        "name": "Neighborhood Auto",
+        "image": "https://example.com/logo.png",
+        "@id": "https://neighborhoodauto.example.com",
+        "url": "https://neighborhoodauto.example.com",
+        "telephone": "+1-123-456-7890",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Market St",
+          "addressLocality": "YourCity",
+          "addressRegion": "ST",
+          "postalCode": "94103",
+          "addressCountry": "US"
+        },
+        "openingHoursSpecification": [{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"17:00"}],
+        "sameAs": ["https://facebook.com/neighborhoodauto","https://instagram.com/neighborhoodauto"]
+      },
+      {
+        "@type": "Product",
+        "name": "2018 Toyota RAV4 Limited",
+        "vehicleIdentificationNumber": "1HGBH41JXMN109186",
+        "modelDate": "2018",
+        "brand": "Toyota",
+        "offers": {"@type":"Offer","price":"23995","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://neighborhoodauto.example.com/inventory/1HGBH41JXMN109186"}
+      }
+    ]
+  }
+  </script>
+
+</body>
+</html>
